@@ -14,10 +14,10 @@ public class Persona {
     private String apellido;
     private String username;
 
-    public Persona(String a, String b) {
+    public Persona(String a, String b, String c) {
         nombre = a;
         apellido = b;
-        //username = c;
+        username = c;
     }
 
     public void establecerNombre(String a) {
@@ -49,7 +49,7 @@ public class Persona {
         String cadena;
         cadena = String.format("Nombre: %s\n"
                 + "apellido: %s\n"
-                + "Username: %s\n",
+                + "Username: %s",
                 nombre,
                 apellido,
                 username);

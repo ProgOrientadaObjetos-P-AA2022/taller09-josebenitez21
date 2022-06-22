@@ -20,6 +20,16 @@ public class PrestamoAutomovil extends Prestamo {
     private double valorVe;
     private double valorMensualP;
 
+    public PrestamoAutomovil(Persona pe, int m, String ci, String ta, String ma,
+            Persona g1, double valV, double valM) {
+        super(pe, ci.toLowerCase(), m);
+        tipoAuto = ta;
+        marcaAuto = ma;
+        garante = g1;
+        valorVe = valV;
+        valorMensualP = valM;
+    }
+
     public void establecerTipoAuto(String a) {
         tipoAuto = a;
     }
@@ -63,14 +73,14 @@ public class PrestamoAutomovil extends Prestamo {
     @Override
     public String toString() {
         String cadena;
-        cadena = String.format("Beneficiario: %s\n"
+        cadena = String.format(" %s\n"
                 + "Ciudad: %s\n"
                 + "Tiempo Prestamo: %d\n"
                 + "Tipo de Auto: %s\n"
                 + "Marca del Auto: %s\n"
-                + "Garante: %s"
-                + "Valor del Vehiculo: %.2f"
-                + "Valor mensual a pagar: %.2f",
+                + "Garante: %s\n"
+                + "Valor del Vehiculo: %.2f\n"
+                + "Valor mensual a pagar: %.2f\n",
                 beneficiario,
                 ciudad,
                 tiempoPres,

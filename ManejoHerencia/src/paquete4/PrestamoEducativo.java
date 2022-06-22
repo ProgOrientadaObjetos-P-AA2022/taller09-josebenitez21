@@ -5,7 +5,8 @@
  */
 package paquete4;
 
-import paquete2.Prestamo;
+
+import paquete2.*;
 
 /**
  *
@@ -14,15 +15,24 @@ import paquete2.Prestamo;
 public class PrestamoEducativo extends Prestamo {
 
     private String nivelEstudio;
-    private String centroEducativo;
+    private InstitucionEducativa centroEducativo;
     private double valorCarrera;
     private double pagoMensualCa;
+
+    public PrestamoEducativo(Persona pe, int m, String ci, String k,
+            InstitucionEducativa ie, double vc, double vmc ) {
+        super(pe, ci.toUpperCase(), m);
+        nivelEstudio = k ;
+        centroEducativo = ie;
+        valorCarrera = vc;
+        pagoMensualCa = vmc;
+    }
 
     public void establecerNivelEstudio(String a) {
         nivelEstudio = a;
     }
 
-    public void establecerCentroEducativo(String a) {
+    public void establecerCentroEducativo(InstitucionEducativa a) {
         centroEducativo = a;
     }
 
@@ -31,14 +41,15 @@ public class PrestamoEducativo extends Prestamo {
     }
 
     public void establecerPagoMensualCa() {
-        pagoMensualCa = (valorCarrera / tiempoPres) - ((valorCarrera / tiempoPres) * 0.10);
+        pagoMensualCa = (valorCarrera / tiempoPres)
+                - ((valorCarrera / tiempoPres) * 0.10);
     }
 
     public String obtenerNivelEstudio() {
         return nivelEstudio;
     }
 
-    public String obtenerCentroEducativo() {
+    public InstitucionEducativa obtenerCentroEducativo() {
         return centroEducativo;
     }
 
@@ -50,4 +61,22 @@ public class PrestamoEducativo extends Prestamo {
         return pagoMensualCa;
     }
 
+    @Override
+    public String toString() {
+
+        String cadena = "----------------Datos de préstamo educativo---------------";
+        cadena = String.format("%s%s", cadena, super.toString());
+        cadena = String.format("%s\n"
+                + "Nivel de estudio: %s\n"
+                + "Centro Educativo: %s\n"
+                + "Valor de la carrera: %.2f\n"
+                + "Valor mensual de pago: %.2f\n",
+                cadena,
+                obtenerNivelEstudio(),
+                obtenerCentroEducativo(),
+                obtenerValorCarrera(),
+                obtenerPagoMensualCa());
+
+        return cadena;
+    }
 }
