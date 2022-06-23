@@ -51,6 +51,7 @@ public class Ejecutor {
                     + "[3] Salir");
             option = entrada.nextInt();
             entrada.nextLine();
+            //if (option == 1 || option == 2 || option == 5) {
             if (option == 1 || option == 2 || option == 5) {
 
                 System.out.println("Bienvenido a nuestro sistema de Informacion");
